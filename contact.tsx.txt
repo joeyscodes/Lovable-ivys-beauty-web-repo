@@ -1,0 +1,166 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { MapPin, Phone, Instagram, MessageCircle, Clock, Crown } from "lucide-react";
+import { SiteLayout } from "@/components/SiteLayout";
+import { PageHeader } from "@/components/PageHeader";
+import { Reveal } from "@/components/Reveal";
+import { site } from "@/lib/site";
+import bannerImg from "@/assets/salon-interior.jpg";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact & Booking | Ivy's Beauty Secret, Musaffah Abu Dhabi" },
+      {
+        name: "description",
+        content:
+          "Book your appointment at Ivy's Beauty Secret Ladies Salon & Spa. Call or WhatsApp +971 50 992 1215. Visit us in Musaffah ME9, Abu Dhabi.",
+      },
+      {
+        property: "og:title",
+        content: "Contact & Booking | Ivy's Beauty Secret Ladies Salon & Spa",
+      },
+      {
+        property: "og:description",
+        content:
+          "Call or WhatsApp +971 50 992 1215 to book. Visit us in Musaffah ME9, Abu Dhabi.",
+      },
+    ],
+  }),
+  component: Contact,
+});
+
+function Contact() {
+  const cards = [
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      value: site.phone,
+      action: site.whatsappMessage,
+      cta: "Chat Now",
+      external: true,
+    },
+    {
+      icon: Phone,
+      title: "Call Us",
+      value: site.phone,
+      action: `tel:${site.phoneRaw}`,
+      cta: "Call",
+      external: false,
+    },
+    {
+      icon: Instagram,
+      title: "Instagram",
+      value: site.instagramHandle,
+      action: site.instagram,
+      cta: "Follow",
+      external: true,
+    },
+  ];
+
+  return (
+    <SiteLayout>
+      <PageHeader
+        eyebrow="Contact & Booking"
+        title="Let's Get You Pampered"
+        image={bannerImg}
+        subtitle="Reserve your appointment or ask us anything — our team is ready to welcome you to Ivy's Beauty Secret."
+      >
+        <a
+          href={site.whatsappMessage}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-rose px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-luxe whatsapp-glow transition-transform duration-300 hover:scale-105"
+          style={{ backgroundColor: "#25D366" }}
+        >
+          <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+        </a>
+      </PageHeader>
+
+      <section className="px-6 py-20 sm:px-8">
+        <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-3">
+          {cards.map((c, i) => (
+            <Reveal key={c.title} delay={i * 100}>
+              <a
+                href={c.action}
+                target={c.external ? "_blank" : undefined}
+                rel={c.external ? "noopener noreferrer" : undefined}
+                className="group flex h-full flex-col items-center rounded-2xl border border-border bg-card p-7 text-center shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-luxe"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-rose text-primary-foreground">
+                  <c.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 font-display text-2xl text-foreground">{c.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{c.value}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium uppercase tracking-[0.12em] text-primary">
+                  {c.cta}
+                </span>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-2">
+          <Reveal>
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-soft">
+              <h3 className="font-display text-3xl text-foreground">Visit Our Salon</h3>
+              <ul className="mt-6 space-y-5 text-sm">
+                <li className="flex gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-medium text-foreground">Address</p>
+                    <p className="mt-0.5 leading-relaxed text-muted-foreground">{site.address}</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-medium text-foreground">Phone & WhatsApp</p>
+                    <a href={`tel:${site.phoneRaw}`} className="mt-0.5 block text-muted-foreground hover:text-primary">
+                      {site.phone}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                    <Clock className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-medium text-foreground">Opening Hours</p>
+                    {site.hours.map((h) => (
+                      <p key={h.day} className="mt-0.5 text-muted-foreground">
+                        <span className="text-foreground">{h.day}:</span> {h.time}
+                      </p>
+                    ))}
+                  </div>
+                </li>
+              </ul>
+              <div className="mt-8 rounded-2xl bg-gradient-soft p-6 text-center">
+                <Crown className="mx-auto h-7 w-7 text-gold" />
+                <p className="mt-2 font-display text-xl text-foreground">Be a Pampered Princess</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  We can't wait to welcome you.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <div className="h-full overflow-hidden rounded-3xl border border-border shadow-soft">
+              <iframe
+                title="Ivy's Beauty Secret location map"
+                src={`https://www.google.com/maps?q=${site.mapsQuery}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full min-h-[420px] w-full"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
