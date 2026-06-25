@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Book | Ivy's Beauty Secret Ladies Salon Abu Dhabi</title>
+<meta name="description" content="Book an appointment at Ivy's Beauty Secret Abu Dhabi.">
+<link rel="icon" href="data:,">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.19 0.055 350);
+  --foreground: oklch(0.96 0.02 60);
+  --card: oklch(0.25 0.07 351);
+  --card-foreground: oklch(0.96 0.018 60);
+  --primary: oklch(0.66 0.23 358);
+  --primary-foreground: oklch(0.99 0.01 350);
+  --secondary: oklch(0.34 0.1 355);
+  --secondary-foreground: oklch(0.95 0.03 350);
+  --muted-foreground: oklch(0.82 0.045 350);
+  --accent: oklch(0.8 0.13 55);
+  --border: oklch(0.74 0.09 350 / 0.22);
+  --gold: oklch(0.85 0.14 88);
+  --charcoal: oklch(0.12 0.035 350);
+  --gradient-rose: linear-gradient(135deg, oklch(0.66 0.26 350), oklch(0.72 0.21 18), oklch(0.84 0.16 70));
+  --gradient-soft: linear-gradient(160deg, oklch(0.22 0.07 351), oklch(0.16 0.05 345));
+  --shadow-luxe: 0 30px 70px -25px oklch(0.66 0.23 358 / 0.55);
+  --shadow-soft: 0 18px 45px -22px oklch(0.5 0.16 350 / 0.5);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Jost", "Helvetica Neue", sans-serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; border-color: var(--border); }
+html { scroll-behavior: smooth; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 80% 0%, oklch(0.4 0.16 350 / 0.35), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 0% 30%, oklch(0.35 0.12 20 / 0.25), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, oklch(0.3 0.12 350 / 0.3), transparent 60%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); }
+.font-script { font-family: var(--font-script); }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 640px) { .wrap { padding: 0 32px; } }
+
+.text-gradient-rose {
+  background: var(--gradient-rose);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 220% auto;
+  animation: shimmer-sweep 6s linear infinite;
+}
+@keyframes shimmer-sweep { 0% { background-position: 0% center; } 100% { background-position: 220% center; } }
+
+.bg-gradient-rose { background: var(--gradient-rose); }
+.bg-gradient-soft { background: var(--gradient-soft); }
+.shadow-luxe { box-shadow: var(--shadow-luxe); }
+.shadow-soft { box-shadow: var(--shadow-soft); }
+.tracking-luxe { letter-spacing: 0.28em; }
+
+/* ============ Buttons ============ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 999px; padding: 14px 28px; font-size: 14px; font-weight: 500;
+  transition: transform .3s ease, background .3s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: scale(1.05); }
+.btn-rose { background: var(--gradient-rose); color: var(--primary-foreground); box-shadow: var(--shadow-luxe); }
+.btn-outline-gold {
+  border: 1px solid oklch(0.85 0.14 88 / 0.4); background: oklch(0.12 0.035 350 / 0.3);
+  color: var(--foreground); backdrop-filter: blur(8px);
+}
+.btn-outline-gold:hover { background: oklch(0.12 0.035 350 / 0.5); }
+.btn-white { background: oklch(1 0 0 / 0.1); color: #fff; border: 1px solid oklch(1 0 0 / 0.3); }
+.btn-white:hover { background: oklch(1 0 0 / 0.2); }
+.btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ============ Navbar ============ */
+header.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 40; transition: all .5s ease;
+  background: transparent;
+}
+header.site-header.scrolled { background: oklch(0.19 0.055 350 / 0.8); backdrop-filter: blur(20px); box-shadow: var(--shadow-soft); }
+
+.announce {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  border-bottom: 1px solid oklch(0.85 0.14 88 / 0.2); background: oklch(0.12 0.035 350 / 0.4);
+  padding: 6px 16px; font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.28em; color: var(--gold); backdrop-filter: blur(4px); text-align: center;
+}
+.announce svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+nav.navbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; max-width: 1280px; margin: 0 auto; }
+@media (min-width: 640px) { nav.navbar { padding: 12px 32px; } }
+
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-mark {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+  background: var(--gradient-rose); display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-soft); ring: 1px solid oklch(0.85 0.14 88 / .4);
+  border: 1px solid oklch(0.85 0.14 88 / 0.4);
+}
+.logo-mark svg { width: 22px; height: 22px; color: #fff; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-text .name { font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
+.logo-text .sub { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.28em; color: oklch(0.66 0.23 358 / 0.8); }
+
+.nav-links { display: none; align-items: center; gap: 32px; }
+@media (min-width: 1024px) { .nav-links { display: flex; } }
+.nav-links a { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: oklch(0.96 0.02 60 / 0.7); position: relative; transition: color .3s; padding-bottom: 6px; }
+.nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--primary); transition: width .3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.book-now-desktop { display: none; }
+@media (min-width: 640px) { .book-now-desktop { display: inline-flex; padding: 10px 20px; } }
+
+.menu-btn { display: inline-flex; height: 40px; width: 40px; align-items: center; justify-content: center; border-radius: 50%; background: transparent; border: none; color: var(--foreground); cursor: pointer; }
+.menu-btn:hover { background: var(--secondary); }
+@media (min-width: 1024px) { .menu-btn { display: none; } }
+.menu-btn svg { width: 22px; height: 22px; }
+
+.mobile-panel {
+  position: fixed; top: 0; right: 0; height: 100%; width: 82%; max-width: 360px;
+  background: var(--background); border-left: 1px solid var(--border); z-index: 60;
+  padding: 24px; transform: translateX(100%); transition: transform .4s ease;
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+.mobile-panel.open { transform: translateX(0); }
+.mobile-overlay { position: fixed; inset: 0; background: oklch(0 0 0 / 0.5); z-index: 55; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.mobile-overlay.open { opacity: 1; pointer-events: auto; }
+.mobile-panel .close-btn { align-self: flex-end; background: none; border: none; color: var(--foreground); cursor: pointer; padding: 8px; }
+.mobile-panel .close-btn svg { width: 22px; height: 22px; }
+.mobile-panel .mp-links { display: flex; flex-direction: column; gap: 4px; margin-top: 24px; }
+.mobile-panel .mp-links a { border-radius: 8px; padding: 12px 16px; font-family: var(--font-display); font-size: 24px; color: oklch(0.96 0.02 60 / 0.8); transition: all .2s; }
+.mobile-panel .mp-links a:hover, .mobile-panel .mp-links a.active { background: var(--secondary); color: var(--primary); }
+.mobile-panel .btn { margin-top: 32px; width: 100%; padding: 14px; }
+
+/* ============ Hero ============ */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.hero-img { position: absolute; inset: 0 0 0 auto; height: 100%; width: 100%; object-fit: cover; object-position: 68% center; pointer-events: none; }
+@media (min-width: 640px) { .hero-img { width: 64%; } }
+@media (min-width: 1024px) { .hero-img { width: 55%; } }
+.hero-overlay-1 { position: absolute; inset: 0; background: linear-gradient(to right, var(--background) 0%, oklch(0.19 0.055 350 / 0.9) 50%, oklch(0.19 0.055 350 / 0.2) 100%); }
+@media (min-width: 640px) { .hero-overlay-1 { background: linear-gradient(to right, var(--background) 0%, oklch(0.19 0.055 350 / 0.7) 50%, transparent 100%); } }
+.hero-overlay-2 { position: absolute; inset: 0; background: linear-gradient(to top, var(--background) 0%, oklch(0.19 0.055 350 / 0.3) 50%, oklch(0.19 0.055 350 / 0.6) 100%); }
+.hero-overlay-3 { position: absolute; left: 0; right: 0; bottom: 0; height: 160px; background: linear-gradient(to top, var(--background), transparent); }
+.hero-content { position: relative; max-width: 1280px; margin: 0 auto; padding: 112px 24px 56px; width: 100%; }
+@media (min-width: 640px) { .hero-content { padding: 112px 32px 56px; } }
+.hero-inner { max-width: 640px; }
+
+.eyebrow-pill {
+  display: inline-flex; align-items: center; gap: 8px; border-radius: 999px;
+  border: 1px solid oklch(0.85 0.14 88 / 0.4); background: oklch(0.12 0.035 350 / 0.4);
+  padding: 8px 16px; font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.28em; color: var(--gold); box-shadow: var(--shadow-soft); backdrop-filter: blur(8px);
+}
+.eyebrow-pill svg { width: 14px; height: 14px; }
+
+.hero h1 { margin-top: 24px; font-size: 44px; font-weight: 500; line-height: 1.05; }
+@media (min-width: 640px) { .hero h1 { font-size: 64px; } }
+.hero h1 .script-line { display: block; margin-top: 4px; font-family: var(--font-script); font-weight: 400; font-size: 52px; line-height: 1.1; }
+@media (min-width: 640px) { .hero h1 .script-line { font-size: 76px; } }
+
+.hero p.lead { margin-top: 24px; max-width: 420px; font-size: 16px; line-height: 1.7; color: var(--muted-foreground); }
+@media (min-width: 640px) { .hero p.lead { font-size: 18px; } }
+
+.hero-cta { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .hero-cta { flex-direction: row; } }
+
+.trust-bar { margin-top: 40px; max-width: 540px; border-radius: 16px; border: 1px solid oklch(0.85 0.14 88 / 0.25); background: oklch(0.12 0.035 350 / 0.4); padding: 20px; box-shadow: var(--shadow-soft); backdrop-filter: blur(8px); }
+.trust-bar-flex { display: flex; flex-direction: column; gap: 20px; }
+@media (min-width: 640px) { .trust-bar-flex { flex-direction: row; align-items: center; gap: 24px; } }
+.stars { display: flex; align-items: center; gap: 2px; }
+.stars svg { width: 16px; height: 16px; fill: var(--gold); color: var(--gold); }
+.trust-bar .rating-text { margin-top: 6px; font-size: 14px; font-weight: 500; }
+.trust-bar .rating-sub { font-size: 12px; color: var(--muted-foreground); }
+.trust-divider { display: none; height: 48px; width: 1px; background: oklch(0.85 0.14 88 / 0.25); }
+@media (min-width: 640px) { .trust-divider { display: block; } }
+.trust-features { display: grid; flex: 1; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; }
+.trust-features .f { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.trust-features svg { width: 20px; height: 20px; color: var(--gold); }
+.trust-features span { font-size: 11px; font-weight: 500; line-height: 1.2; color: oklch(0.96 0.02 60 / 0.9); }
+
+.hero p.script-tag { margin-top: 24px; text-align: center; font-family: var(--font-script); font-size: 26px; color: oklch(0.85 0.14 88 / 0.9); }
+@media (min-width: 640px) { .hero p.script-tag { text-align: left; } }
+
+/* float-up entrance */
+.float-up { animation: float-up .9s cubic-bezier(.22,1,.36,1) both; }
+@keyframes float-up { 0% { opacity: 0; transform: translateY(28px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* ============ Reveal on scroll ============ */
+.reveal { opacity: 0; transform: translateY(32px); transition: all .9s cubic-bezier(.22,1,.36,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ============ Sections / headings ============ */
+section { position: relative; }
+.section-pad { padding: 96px 24px; }
+@media (min-width: 640px) { .section-pad { padding: 96px 32px; } }
+
+.section-heading { max-width: 640px; }
+.section-heading.center { margin: 0 auto; text-align: center; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.28em; color: var(--primary);
+}
+.eyebrow .line { height: 1px; width: 24px; background: var(--gold); display: inline-block; }
+.section-heading h2 { margin-top: 16px; font-size: 32px; font-weight: 500; line-height: 1.15; }
+@media (min-width: 640px) { .section-heading h2 { font-size: 44px; } }
+.section-heading p.subtitle { margin-top: 16px; font-size: 16px; line-height: 1.7; color: var(--muted-foreground); }
+
+/* ============ Pillars / Cards ============ */
+.pillars-section { position: relative; margin-top: -64px; z-index: 10; padding: 0 24px; }
+@media (min-width: 640px) { .pillars-section { padding: 0 32px; } }
+.grid-3 { max-width: 1100px; margin: 0 auto; display: grid; gap: 20px; }
+@media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  height: 100%; border-radius: 16px; border: 1px solid var(--border); background: var(--card);
+  padding: 28px; box-shadow: var(--shadow-soft); transition: transform .5s ease;
+}
+.card:hover { transform: translateY(-6px); }
+.card-icon { display: flex; height: 48px; width: 48px; align-items: center; justify-content: center; border-radius: 50%; background: var(--gradient-rose); color: var(--primary-foreground); }
+.card-icon svg { width: 20px; height: 20px; }
+.card h3 { margin-top: 20px; font-size: 24px; font-weight: 500; }
+.card p { margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
+
+/* ============ About/intro split ============ */
+.split { max-width: 1280px; margin: 0 auto; display: grid; gap: 48px; align-items: center; }
+@media (min-width: 1024px) { .split { grid-template-columns: 1fr 1fr; } }
+.split img { border-radius: 24px; box-shadow: var(--shadow-luxe); width: 100%; }
+.split-img-wrap { position: relative; }
+.stat-badge {
+  display: none; position: absolute; bottom: -24px; right: -16px; border-radius: 16px;
+  border: 1px solid var(--border); background: oklch(0.25 0.07 351 / 0.95); padding: 20px;
+  box-shadow: var(--shadow-luxe); backdrop-filter: blur(8px);
+}
+@media (min-width: 640px) { .stat-badge { display: block; } }
+.stat-badge .num { font-family: var(--font-display); font-size: 30px; color: var(--primary); }
+.stat-badge .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); }
+.split h2 { margin-top: 16px; font-size: 32px; font-weight: 500; line-height: 1.15; }
+@media (min-width: 640px) { .split h2 { font-size: 44px; } }
+.split p { margin-top: 18px; font-size: 16px; line-height: 1.7; color: var(--muted-foreground); }
+.text-link { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary); transition: color .3s; }
+.text-link:hover { color: var(--foreground); }
+.text-link svg { width: 16px; height: 16px; }
+
+/* ============ Services preview grid ============ */
+.grid-4 { max-width: 1100px; margin: 56px auto 0; display: grid; gap: 24px; }
+@media (min-width: 640px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+.service-card { display: block; overflow: hidden; border-radius: 16px; border: 1px solid var(--border); background: var(--card); box-shadow: var(--shadow-soft); transition: all .5s ease; }
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-luxe); }
+.service-card .img-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.service-card .img-wrap img { height: 100%; width: 100%; object-fit: cover; transition: transform .7s ease; }
+.service-card:hover .img-wrap img { transform: scale(1.1); }
+.service-card .img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, oklch(0.12 0.035 350 / 0.7), transparent); }
+.service-card .img-wrap h3 { position: absolute; bottom: 16px; left: 20px; color: #fff; font-size: 22px; font-weight: 500; }
+.service-card p { padding: 16px 20px; font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
+.center-cta { margin-top: 48px; text-align: center; }
+
+/* ============ Category list ============ */
+.grid-list3 { max-width: 950px; margin: 48px auto 0; display: grid; gap: 16px; }
+@media (min-width: 640px) { .grid-list3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid-list3 { grid-template-columns: repeat(3, 1fr); } }
+.list-card { display: flex; height: 100%; align-items: flex-start; gap: 16px; border-radius: 16px; border: 1px solid var(--border); background: var(--card); padding: 20px; transition: border-color .3s; }
+.list-card:hover { border-color: oklch(0.66 0.23 358 / 0.4); }
+.list-card .icon { display: flex; height: 44px; width: 44px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: var(--secondary); color: var(--primary); }
+.list-card .icon svg { width: 20px; height: 20px; }
+.list-card h3 { font-size: 20px; font-weight: 500; }
+.list-card p { margin-top: 4px; font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
+
+/* ============ Testimonials ============ */
+.grid-testi { max-width: 1100px; margin: 56px auto 0; display: grid; gap: 24px; }
+@media (min-width: 768px) { .grid-testi { grid-template-columns: repeat(3, 1fr); } }
+.testi-card { display: flex; height: 100%; flex-direction: column; border-radius: 16px; border: 1px solid var(--border); background: var(--card); padding: 28px; box-shadow: var(--shadow-soft); }
+.testi-card .stars { gap: 4px; }
+.testi-card blockquote { margin-top: 16px; flex: 1; font-family: var(--font-display); font-size: 20px; font-style: italic; line-height: 1.6; }
+.testi-card figcaption { margin-top: 20px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); }
+
+/* ============ CTA banner ============ */
+.cta-banner { position: relative; max-width: 1100px; margin: 0 auto; overflow: hidden; border-radius: 32px; background: var(--charcoal); padding: 64px 32px; text-align: center; box-shadow: var(--shadow-luxe); }
+@media (min-width: 640px) { .cta-banner { padding: 80px 64px; } }
+.cta-banner::before { content: ""; position: absolute; inset: 0; opacity: 0.2; background: var(--gradient-rose); }
+.cta-banner-content { position: relative; }
+.cta-banner svg.crown { width: 40px; height: 40px; color: var(--gold); margin: 0 auto; display: block; }
+.cta-banner h2 { margin-top: 20px; font-size: 32px; font-weight: 500; color: #fff; }
+@media (min-width: 640px) { .cta-banner h2 { font-size: 44px; } }
+.cta-banner p { margin: 16px auto 0; max-width: 540px; font-size: 16px; line-height: 1.7; color: oklch(1 0 0 / 0.8); }
+.cta-banner .cta-actions { margin-top: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+@media (min-width: 640px) { .cta-banner .cta-actions { flex-direction: row; } }
+
+/* ============ Footer ============ */
+footer.site-footer { position: relative; margin-top: 96px; overflow: hidden; background: var(--charcoal); color: var(--foreground); }
+footer.site-footer::before { content: ""; position: absolute; inset: 0; opacity: 0.07; background: var(--gradient-rose); }
+.footer-inner { position: relative; max-width: 1280px; margin: 0 auto; padding: 64px 24px; }
+@media (min-width: 640px) { .footer-inner { padding: 64px 32px; } }
+.footer-grid { display: grid; gap: 48px; }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+.footer-grid p.tagline { margin-top: 20px; max-width: 280px; font-size: 14px; line-height: 1.7; color: oklch(0.96 0.02 60 / 0.7); }
+.footer-grid h4 { font-size: 18px; color: var(--gold); }
+.footer-grid ul { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.footer-grid ul a { color: oklch(0.96 0.02 60 / 0.7); transition: color .3s; }
+.footer-grid ul a:hover { color: var(--gold); }
+.footer-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: oklch(0.96 0.02 60 / 0.7); }
+.footer-contact li { display: flex; gap: 12px; }
+.footer-contact svg { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; color: var(--gold); }
+.footer-contact a:hover { color: var(--gold); }
+.footer-connect p { margin-top: 16px; font-size: 14px; color: oklch(0.96 0.02 60 / 0.7); }
+.footer-socials { margin-top: 20px; display: flex; gap: 12px; }
+.footer-socials a { display: flex; height: 44px; width: 44px; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid oklch(0.96 0.02 60 / 0.2); transition: all .3s; }
+.footer-socials a:hover { background: var(--gold); color: var(--charcoal); }
+.footer-socials svg { width: 20px; height: 20px; }
+.footer-bottom { margin-top: 56px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid oklch(0.96 0.02 60 / 0.15); padding-top: 24px; font-size: 12px; color: oklch(0.96 0.02 60 / 0.55); text-align: center; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; text-align: left; } }
+
+/* ============ Floating actions ============ */
+.floating-actions { position: fixed; bottom: 20px; right: 20px; z-index: 50; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.fab { display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #fff; box-shadow: var(--shadow-luxe); transition: transform .3s ease; }
+.fab:hover { transform: scale(1.1); }
+.fab svg { width: 24px; height: 24px; }
+.fab-ig { width: 52px; height: 52px; background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); animation: instagram-pulse 2s ease-out infinite; }
+.fab-wa { width: 56px; height: 56px; background-color: #25D366; animation: whatsapp-pulse 2s ease-out infinite; }
+@keyframes whatsapp-pulse { 0% { box-shadow: 0 0 14px 2px oklch(0.75 0.18 150 / 0.75), 0 0 0 0 oklch(0.75 0.18 150 / 0.6); } 70% { box-shadow: 0 0 22px 6px oklch(0.75 0.18 150 / 0.55), 0 0 0 18px oklch(0.75 0.18 150 / 0); } 100% { box-shadow: 0 0 14px 2px oklch(0.75 0.18 150 / 0.75), 0 0 0 0 oklch(0.75 0.18 150 / 0); } }
+@keyframes instagram-pulse { 0% { box-shadow: 0 0 14px 2px oklch(0.62 0.25 0 / 0.7), 0 0 0 0 oklch(0.62 0.25 0 / 0.55); } 70% { box-shadow: 0 0 24px 6px oklch(0.62 0.25 0 / 0.5), 0 0 0 16px oklch(0.62 0.25 0 / 0); } 100% { box-shadow: 0 0 14px 2px oklch(0.62 0.25 0 / 0.7), 0 0 0 0 oklch(0.62 0.25 0 / 0); } }
+
+/* ============ Ambient petals/glitter ============ */
+.sparkle-field { position: fixed; inset: 0; z-index: 35; pointer-events: none; overflow: hidden; }
+.sparkle-field .petal, .sparkle-field .glitter { position: absolute; top: -8%; will-change: transform, opacity; }
+.sparkle-field .petal {
+  border-radius: 76% 24% 70% 30% / 30% 70% 30% 70%;
+  background: radial-gradient(circle at 30% 25%, oklch(0.95 0.07 350 / 0.95), transparent 60%), linear-gradient(135deg, oklch(0.82 0.16 355), oklch(0.66 0.22 0));
+  filter: blur(0.2px) drop-shadow(0 2px 6px oklch(0.5 0.18 350 / 0.5));
+  animation-name: petal-fall; animation-timing-function: cubic-bezier(.45,0,.55,1); animation-iteration-count: infinite;
+}
+.sparkle-field .glitter {
+  background: linear-gradient(135deg, oklch(0.99 0.04 95), oklch(0.86 0.15 88));
+  clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+  filter: drop-shadow(0 0 6px oklch(0.9 0.14 90 / 0.9));
+  animation-name: glitter-twinkle; animation-timing-function: ease-in-out; animation-iteration-count: infinite;
+}
+@keyframes petal-fall { 0% { transform: translate3d(0,-12vh,0) rotate(0deg); opacity: 0; } 8% { opacity: var(--o,.85); } 50% { transform: translate3d(var(--sway,36px),52vh,0) rotate(calc(var(--spin,360deg) * .5)); } 92% { opacity: var(--o,.85); } 100% { transform: translate3d(calc(var(--sway,36px) * -1),114vh,0) rotate(var(--spin,360deg)); opacity: 0; } }
+@keyframes glitter-twinkle { 0%, 100% { transform: translate3d(0,0,0) scale(.2) rotate(0deg); opacity: 0; } 40% { opacity: 1; } 50% { transform: translate3d(var(--gx,0),var(--gy,12px),0) scale(1) rotate(35deg); opacity: 1; } 60% { opacity: .85; } }
+@media (prefers-reduced-motion: reduce) { .sparkle-field { display: none; } .reveal { opacity: 1; transform: none; } .float-up { animation: none; opacity: 1; } }
+
+/* ============ Page header ============ */
+.page-header { position: relative; overflow: hidden; padding: 144px 24px 64px; }
+@media (min-width: 640px) { .page-header { padding: 176px 32px 64px; } }
+.page-header.no-img { background: var(--gradient-soft); }
+.page-header.no-img::before { content: ""; position: absolute; right: -96px; top: -96px; height: 288px; width: 288px; border-radius: 50%; background: var(--gradient-rose); opacity: 0.1; filter: blur(60px); }
+.page-header.no-img::after { content: ""; position: absolute; left: -96px; bottom: 0; height: 288px; width: 288px; border-radius: 50%; background: var(--gradient-rose); opacity: 0.1; filter: blur(60px); }
+.page-header .ph-img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; }
+.page-header .ph-overlay-1 { position: absolute; inset: 0; background: linear-gradient(to right, oklch(0.12 0.035 350 / 0.85), oklch(0.12 0.035 350 / 0.55), oklch(0.12 0.035 350 / 0.25)); }
+.page-header .ph-overlay-2 { position: absolute; inset: 0; background: linear-gradient(to top, oklch(0.19 0.055 350 / 0.6), transparent, transparent); }
+.page-header-inner { position: relative; max-width: 720px; margin: 0 auto; text-align: center; }
+.page-header h1 { margin-top: 16px; font-size: 40px; font-weight: 500; line-height: 1.15; color: var(--foreground); }
+.page-header.has-img h1 { color: #fff; }
+@media (min-width: 640px) { .page-header h1 { font-size: 56px; } }
+.page-header .ph-eyebrow { color: var(--primary); }
+.page-header.has-img .ph-eyebrow { color: var(--gold); }
+.page-header p.ph-sub { margin: 20px auto 0; max-width: 600px; font-size: 16px; line-height: 1.7; color: var(--muted-foreground); }
+.page-header.has-img p.ph-sub { color: oklch(1 0 0 / 0.85); }
+.page-header .ph-children { margin-top: 32px; }
+
+/* ============ Services page list ============ */
+.service-block { max-width: 950px; margin: 0 auto; }
+.service-block + .service-block { margin-top: 64px; }
+.service-block-head { display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+.service-block-head .num { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.28em; color: var(--primary); }
+.service-block-head .num svg { width: 14px; height: 14px; color: var(--gold); }
+.service-block-head h2 { font-size: 28px; }
+@media (min-width: 640px) { .service-block-head h2 { font-size: 34px; } }
+.service-block-head p { margin-top: 4px; max-width: 600px; font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
+.svc-list { margin-top: 24px; display: grid; gap: 12px; }
+@media (min-width: 640px) { .svc-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .svc-list { grid-template-columns: repeat(3, 1fr); } }
+.svc-list li { display: flex; align-items: center; gap: 12px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); padding: 12px 16px; font-size: 14px; transition: border-color .3s; }
+.svc-list li:hover { border-color: oklch(0.66 0.23 358 / 0.4); }
+.svc-list li .check { display: flex; height: 24px; width: 24px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: var(--secondary); color: var(--primary); }
+.svc-list li .check svg { width: 14px; height: 14px; }
+
+.info-banner { margin: 80px auto 0; max-width: 680px; border-radius: 24px; border: 1px solid var(--border); background: var(--gradient-soft); padding: 40px; text-align: center; box-shadow: var(--shadow-soft); }
+.info-banner h3 { font-size: 28px; }
+.info-banner p { margin: 12px auto 0; max-width: 480px; font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
+.info-banner .btn { margin-top: 28px; }
+
+/* ============ Gallery ============ */
+.gallery-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 230px; gap: 16px; }
+@media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+.gallery-item { position: relative; height: 100%; width: 100%; overflow: hidden; border-radius: 16px; box-shadow: var(--shadow-soft); }
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item img { height: 100%; width: 100%; object-fit: cover; transition: transform .7s ease; }
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item .g-overlay { position: absolute; inset: 0; background: linear-gradient(to top, oklch(0.12 0.035 350 / 0.7), transparent 60%); opacity: 0.7; transition: opacity .5s; }
+.gallery-item:hover .g-overlay { opacity: 0.9; }
+.gallery-item span { position: absolute; bottom: 16px; left: 16px; font-family: var(--font-display); font-size: 20px; color: #fff; }
+
+/* ============ Contact ============ */
+.contact-cards { max-width: 920px; margin: 0 auto; display: grid; gap: 20px; }
+@media (min-width: 640px) { .contact-cards { grid-template-columns: repeat(3, 1fr); } }
+.contact-card { display: flex; height: 100%; flex-direction: column; align-items: center; border-radius: 16px; border: 1px solid var(--border); background: var(--card); padding: 28px; text-align: center; box-shadow: var(--shadow-soft); transition: all .5s ease; }
+.contact-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-luxe); }
+.contact-card .icon { display: flex; height: 56px; width: 56px; align-items: center; justify-content: center; border-radius: 50%; background: var(--gradient-rose); color: var(--primary-foreground); }
+.contact-card .icon svg { width: 24px; height: 24px; }
+.contact-card h3 { margin-top: 20px; font-size: 24px; }
+.contact-card p { margin-top: 4px; font-size: 14px; color: var(--muted-foreground); }
+.contact-card .cta { margin-top: 16px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary); }
+
+.contact-split { max-width: 1100px; margin: 64px auto 0; display: grid; gap: 32px; }
+@media (min-width: 1024px) { .contact-split { grid-template-columns: 1fr 1fr; } }
+.visit-card { border-radius: 24px; border: 1px solid var(--border); background: var(--card); padding: 32px; box-shadow: var(--shadow-soft); }
+.visit-card h3 { font-size: 28px; }
+.visit-list { margin-top: 24px; display: flex; flex-direction: column; gap: 20px; font-size: 14px; }
+.visit-list li { display: flex; gap: 16px; }
+.visit-list .icon { display: flex; height: 40px; width: 40px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: var(--secondary); color: var(--primary); }
+.visit-list .icon svg { width: 18px; height: 18px; }
+.visit-list .label { font-weight: 500; }
+.visit-list .val { margin-top: 2px; line-height: 1.7; color: var(--muted-foreground); }
+.visit-list a.val:hover { color: var(--primary); }
+.visit-footer-note { margin-top: 32px; border-radius: 16px; background: var(--gradient-soft); padding: 24px; text-align: center; }
+.visit-footer-note svg.crown { width: 28px; height: 28px; color: var(--gold); margin: 0 auto; display: block; }
+.visit-footer-note p.tag { margin-top: 8px; font-family: var(--font-display); font-size: 20px; }
+.visit-footer-note p.sub { margin-top: 4px; font-size: 14px; color: var(--muted-foreground); }
+.map-wrap { height: 100%; min-height: 420px; overflow: hidden; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-soft); }
+.map-wrap iframe { height: 100%; min-height: 420px; width: 100%; border: 0; }
+
+
+/* ===== Logo image — show full circular logo, no crop ===== */
+.logo-link { display:flex; align-items:center; text-decoration:none; }
+.logo-img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+.footer-logo-img { height: 72px; }
+
+/* ===== Booking form ===== */
+.booking-form-wrap { position:relative; max-width:820px; margin:48px auto 0; border-radius:24px; border:1px solid var(--border); background:var(--card); padding:40px 32px; box-shadow:var(--shadow-luxe); }
+@media (max-width:640px) { .booking-form-wrap { padding:28px 20px; } }
+.form-grid { display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px) { .form-grid { grid-template-columns:1fr 1fr; } }
+.form-group { display:flex; flex-direction:column; gap:8px; }
+.form-group-full { grid-column:1 / -1; }
+.form-group label { font-size:13px; font-weight:500; text-transform:uppercase; letter-spacing:.1em; color:var(--muted-foreground); }
+.req { color:var(--primary); }
+.form-group input, .form-group select, .form-group textarea {
+  background:oklch(0.19 0.055 350 / 0.7); border:1px solid var(--border);
+  border-radius:12px; color:var(--foreground); font-family:var(--font-body);
+  font-size:15px; padding:13px 16px; transition:border-color .3s, box-shadow .3s;
+  outline:none; width:100%;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color:oklch(0.96 0.02 60 / 0.3); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--primary); box-shadow:0 0 0 3px oklch(0.66 0.23 358 / 0.18); }
+.form-group select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:40px; cursor:pointer; }
+.form-group select option { background:oklch(0.19 0.055 350); }
+.form-group input[type="date"] { color-scheme:dark; }
+.form-group textarea { resize:vertical; min-height:88px; }
+
+/* ===== Success popup ===== */
+.booking-success { position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:24px; background:oklch(0 0 0 / 0.65); backdrop-filter:blur(8px); opacity:0; pointer-events:none; transition:opacity .4s ease; }
+.booking-success.open { opacity:1; pointer-events:auto; }
+.booking-success-card { position:relative; max-width:480px; width:100%; border-radius:28px; border:1px solid oklch(0.85 0.14 88 / 0.35); background:var(--card); padding:44px 36px; text-align:center; box-shadow:var(--shadow-luxe); animation:pop-in .5s cubic-bezier(.34,1.56,.64,1) both; }
+@media (max-width:480px) { .booking-success-card { padding:36px 24px; } }
+@keyframes pop-in { 0% { transform:scale(.75); opacity:0; } 100% { transform:scale(1); opacity:1; } }
+.bs-icon { display:flex; height:68px; width:68px; align-items:center; justify-content:center; border-radius:50%; background:var(--gradient-rose); color:#fff; margin:0 auto 20px; box-shadow:var(--shadow-luxe); }
+.bs-icon svg { width:30px; height:30px; }
+.booking-success-card h3 { font-size:30px; font-weight:500; }
+.bs-script { margin-top:4px; font-size:26px; color:var(--gold); }
+.booking-success-card p { margin-top:14px; font-size:15px; line-height:1.7; color:var(--muted-foreground); }
+.bs-note { font-size:12px !important; margin-top:8px !important; color:oklch(0.85 0.14 88 / 0.8) !important; text-transform:uppercase; letter-spacing:.08em; }
+.bs-actions { margin-top:28px; display:flex; flex-direction:column; gap:12px; }
+@media (min-width:420px) { .bs-actions { flex-direction:row; justify-content:center; } }
+
+/* ===== Contact card cta — no arrow ===== */
+.contact-card .cta { margin-top:16px; font-size:13px; font-weight:500; text-transform:uppercase; letter-spacing:.12em; color:var(--primary); display:inline-block; }
+.contact-card .cta svg { display:none; }
+
+</style>
+</head>
+<body>
+<div class="sparkle-field" aria-hidden="true"></div>
+<header class="site-header">
+    <div class="announce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7Z"/><path d="M5 19h14"/></svg><span>Premium Ladies Salon &amp; Spa &middot; Abu Dhabi</span></div>
+    <nav class="navbar">
+      <a href="index.html" class="logo-link">
+      <img src="data:image/png;base64,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" alt="Ivy's Beauty Secret" class="logo-img">
+    </a>
+      <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="active">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html#booking" class="btn btn-rose book-now-desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M21.29 18.6c.7-.7.7-1.8 0-2.5-.7-.7-1.8-.7-2.5 0l-.3.3-.3-.3c-.7-.7-1.8-.7-2.5 0-.7.7-.7 1.8 0 2.5l2.8 2.8 2.8-2.8Z"/></svg>Book Now</a>
+        <button class="menu-btn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+      </div>
+    </nav>
+  </header>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-panel">
+    <button class="close-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <a href="index.html" class="logo-link">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAIAAAAuDwwzAAASuUlEQVR42rVaaXBcx3Hu7pl37NvF7mIXBwkSFCWBlECZoiRGFimLkmnaoa3DpcOH4thObMUuJ678iHNXUpW/zo/8S6ryI0c5V6Uq8W3ZliU7pi3JiihT4mWe4AEKwAKLvfftu2am82MXJwGIspWpQtXD233zvunp/vrrnsVbx8ZhYRAAADAAw68+GABXXvyqAxcmIlz5HoZ3auB1F++AGWA90O8c7nduppWDun/4/zI5vvPTITCCXDQw/lL2wYUB3B2GDffuE3U/YgbDhpnf7nJ5WaQBAGP3DkrAX2Ybe0ABkjgKwiCMQg0GiYQgIQUAMhuttNGGAG1pp1zPcVwkNOZG0fN1Eb14Qy5+yG+1dF6AS4gqSZqtRpiE6b7M6OiWWzePjuaGhr18TqYcFMCoQHdMPB+2plqVK5Xpy9PXypVZNNiXybqpFBs2bN6SengZMAbABfi4Y2zcrLUpa1kXEDBJ4lq9Kmxxx23j+3fevTt/U9F3qBrElVbSDlQUG2WAGYnIFtJz7ZwnBjJ+ji6r+demzhw9/fp8uZLty3te+satvsynEQBwbMc48JL3rMceiMhGV2sVlPjAvfcfGn9ga5xrn5+rvTnbajfbutPG0Mc4RqWZAZgAbZQptlNseeBk7Ex+cCB/yyY1Yh+rnf3uy8/PTJeK/YOWbWut315QI+DYjl2wsN713JsQg8Cv1at333XXkw88UWz2TR67ODs7E4Bfg+asrlV1s23CmBMNhhc2ixAtkCmys8IbENlByGU5m0sXNu/Ylrtj8JWpo994/ltGYyFfVFq9rfyyAvSaBgbmer2KxE8/8Yk9xb3nfnJm6s1rHdEs6VIpnvN1YIAJkQAJCQGJEAGUNgDMAAa6TsA2WgUrN2JtKsBA1i3cctfO1Jj7Xz/8j5MnTw8PjzDwjbhKF7QoFgY2cGJmni/PDg0P/P5n/0SWCi/94Oi0X7pqLp0Lz5WTikYWQJKIkHCBUzqRandix5ELLocChUDBwG3tl5JynZsx6tJUoz0H73vv4fSgfOP4a6lUmkisF1C4PK0giEJhcF3ExszNlW4f3/nZp//45I9Lp06dqcHMROfEfDJHSBIlAjAwd8kPkQiDMNl35/DDD+1440yJiFbNKVAQUsBBJSkrioOIL56t3HPXg7eObzl69EXXSZGgDViMFtia1iU4w+Xy7Pgd4x99/A+f++aFs1evzOqLE61jgfEttAAWo3dZVmJQmvfeVnjy4C2WWCMjMjADCxAIWAqvTfrHW1z51jdflGrXJz/9e7XaHJueBTZmbtF/naURkIFr1fmt20Y++vE/e/br58vVqWZ8uhKcJxQE1IWLiIte2E01ri3qrehqOT416Z88O+25lmMJZXhNFAJFwkE7KjupwoWJxtab9uy6c+ToK0cymdx6zo0LmVwUrweN4Ldbjis+8Tt/+dxzM3OzU53oRDu6IMhej2CIsB2ojz60+X33FD/wwff8+R88MXF24sP7R05MVKOEidbZbhQGkiCZdbyBicvB2J37Cv3RudOnMtkcG7OxYMJVdJEksd9uPPb05147i9dKpUSfDaLzgpylLVq1g4jM7Nrimy/NPPPU7i/+9n3ZjPOVLz81WQ5L1dCStB4rMDOCNBw2Wz8XVvV7P3p9x/6nR2/a2mo0iMS6HoK9fLIsg7CpVeb3HXgoye89dvKMhZOBfxrRWrFlq1AwM4Nj0XQl+sfvXGEwiHj2cvk7L17JeJYxGxOZQbCMbgTtY4SNF169+sATn2UVbJzkadWUQdDpy3h3HPr4kdcnUlTp1F9fFAIb8CgihInZPuzee1u/SRgBPNfZf8eQUuYG5KlBspJgFjrnyjNX5qwtex88WK+UhZDrxSOtMnOrXn33ocMXwnSjfEk3z7Jqwfr0udz0AqHV0S+dLBOzZdHUXPvcZMOSxDeiIRmAKKxNeGb+1ROnbnrgkb60myTx9UzSjcUVlUsQBPlcdtO733/8/PlUUkqakygE3JimkQJbgfrFlQYiCKJ6O7xcaglBN6pDEVmFqnYhqkxOGm983/2tRo2E2ICwe0/6zfrte989JbKd+UlTn2Sd8A1XH8xAhClHLKyBHIvehohjBsKkUU6FcxMTZ7fve68lYE0ttZRcEFEpRWBG995/afKK0ymp1nw3jy+JEMS3tNciSMNvS3UuPKUi0yhFpUuQLYxsvzn0/eVpdaEax6VADIPOwPAme2RLc+qc8CusolVWxhsoZhh4uSrH7mrXC9611q06TfbL85WZW/fcGQY+rkHyvHQrDDqjO8YCE6vaDPt1ALN8XgbY2HTdrNPn2UCoDXspuY5DrsObCysxcchhozw7uXnHLUIKs5BlcMlqSIu8oZUa2r6tUpmGsGGizup532qziUBps/e2AgiKEr19c99Q3kv0RlpibXsnCsJOqzbj5Ly+bFYlyfIZGHGp76GNlkLkhgfKlTc5bEOi3pYvCsKGr27elHrywLAOlTE8mHMfvX+06ceEb2lvXH0jCjt+JaKwMNgfR1FPRF7PHlopx3HcvN1uzUEUsNE33rdAhFhxPi3/7ne3DfdToowg8EPzsQPDh+8ptENFGwBHhJWQEFnHYRy2Qm7nB/uVUrjC1Lzk01prx3WEa3Q4L+IAuwbgGwSNcWI+fWjg4B6vGRhBCAgGGEF/6n0jg3lX9wTnAv+sJCLs4e79xwCsFCedWNUz+bRR+noy6IE2xtiOQyI2kQ9GdxfUa25sSHaC0A/1/vG+Lz1enK1GBKCN0cYAsB+qLQX3i4/fHsaaCBB7gYHLDcvMxiwLGAYAZCYTG91yPbloPbOUllEupSQiCbGVRGRYrxBVuFFXBMEYSDmUz1phB2zPoowDdipI2WnXspnzGbmcv3tTraeYu4mBWWgjVWLEaiXc1eZy8dtaa5uNa9g3pke7K19ASNx7P3LvcTCGUzadmQw++ddXjTFoV8k7z2TF7XbYahKYWoiORcyAgCuCBBfcD5eKDwAGZEK0jPaMjpRalZK7L5YLhEVRFAsNnhQVAABQbBBBAilgA2CjiI0SRAygWDkkE6MBQAIloOaa5uuvRAAAXGVzlYA1IhAxcEoI15bKmOUZUyCyMZp5wf+AmQ1w99oGJuYUyVLgI+GqcguZZXepQsrA73CQpB2LgAE5J10EqCdB1nJTZE1HzZFUrhWHgnCTW5jwq8NuHzM3kvD2vuFq4gdWbAmhmQVSZHS/lXJIWCSmgoY2nJFWRlgEgEJKwHLU7pNOn+XERiuj2yrOOymHKTJaCGpZEbLuI9mq+WKlYuv6q+wuRAgZRYlf9QsZj8AIxCc231GQ3j9fO/rhkV0ZdOaiZspxSmH73uzIiUbpbKv8W9v2EsP55tye/MjfXn3lA4M7t7i5n1Yvj3r5i+3Kg4Wbt6Sy03EzSmJiOBNUbZJhEmrgtOUO2mk/iTKOmwGrEQfZvlQzCjxpgyA/CjsYpQR40qmUG5a1VH/gcj3NDEKQNrpcqg8Ws0RGIALzuU75k1vuakXhV2dOHt50+9eunfxZ5crxRmnYyXjCUnGitR5O5RpRYBK1KztcsLzbM0O+ijWbqgrOtOf+c/INBdjnpH9avtRMAi0o0bodxw6Jsur8T+niVNSyHHu600jYzCl/JmzWTKeRBHnXBU3z5brtWMwrupLYrVwYGIAsS165NDvUX7AlgICcmzoyN/Fr/dsuBbVy7J9qzTZ1HCo1n/i7+odG3GxoNBAMu5kmJPcVtyUqmVXtnX2DO9PFDw7urER+2nLS0rncqZ1vz+edlIuiD+2RTD8JrMadonAPDo+NejkwuuCkc06KjREMWSeFAPmc12zGjYa/3NI9CdR1j+49z0tdmpi2xbsKOTfoqK9OneyY5K/OPT8TNgnxv6dO2ETKmNjor1w5dsGfd4S0hJhs18azw6FJnr98UQMP25kB2ys6mSPzly52KvUkONucFYiauRz7vqpLKVwS82EnRTJCMx00m0k44uX8OGSCSGvQHWHz1pFNF8+X2KwQJ7ggy3BsbJwBENEYNTdb/vwXHgnqV394ZKLhGzQUG22RQIDYaAEkCEOTIKBLViuOiDBlWYFKEMAlyxhjkBnBj+JiyktYSxKGWWsDDJqZCJnZMDtSMIDp5RpURhMiAhKB48p8hj/zmUf/5d9eLpfbqVRquU9jrwjAXmIiEpaUPz92acftY/kM5DMOIjskCYAZ0pY1XHCI0AGLNAkJNw/lCp4bhdoByyXLtmiwkPZsGxIY3zocxUrHHASJVpyy5WDBG8qnMo6VTdlDOU8rVgmDRjQoiVxh2SQtISwhBcLW0eH5RnJtsux53irf6IIXheLQogaQFl2bnL13/2409Wq9owxoZRiQGbyUeHjfyKu/mL9la19/ztl9a2H3jgFlTDHvbip6LT/eNTZwYO/Wcj24aWvhgXu3G+aBYvpdOwdVooWgg/tv3rtr+PKbjXt3FYs5O5O2B7J2PuukHFFvJ0JAd7elLRiSw48dOPq/F2ZLjZS3wsyLVZZczoKW5RjVPHLkzMOP3D157QVjrFoSq2Sxg8DbN2f23TFQyLlBZPxQP7R36/RcGxEH+73Tl+f37Bz40IEdw4PZaqP90H3bBVHOkwRmes7fXPBaHVWq+JsHnF3b86NFV0qR9qwLk/XLM75tSQAggWzMLbdtlXbqjdfO5/qLq2rERRXb8+ml9lIc1muNL/3F0zNTp4+/dqVe50Yj1gqkpGLWBkDboiTR3QadHyaeI6UU842QmS0pXEfaUihjwlBZFvWl7UTxXMW/bXv/1elmvRUV827bjx65f+vxi/U4UbHiaisRBIho24Ix+dQXnvjJ918/c3qyv79/FehFn17dyyMhkiS+drX82FPvKc1NGsVxbFTC2kDDV+1OUq5Hh/YOZVLyWrkzXEinPbl7rJBy5Ni2/GDezWVTmYw7VEwX896O7YVEmX17RlOucGzaVPQG8m46JbZtypy+XL8222kFKoyMFAgAliU0qwOH7xFsf/9bLw8ODV1fimNPoSzz6QVjk+VYb16d8bz8g4d2Xrk0gWBHsTaKBZEgsiQCotYQxLqYc2vtaGquM9DvRZFyHDk4kGk0oyBMiCiK9XwtmJxu+EHsOtKyqNmOBJGUWG1EcWJsKYgQAIUgIWHb2OCDB+/7yt9/20v3Xd/bxpUHRdcfX2CSBJX52h/96cdyueqz3361XpNzc6FS2OWZRBnDbAlS2hARIiRKM4MU3WsjEA0wAghB3dRlDBtmKYgB2LAlSQhkBkQkAtuhQlF++pkn//WffnT18lx/oX9NM+NCjSgKxYE1pL2QQsDPXjrz64f23bZdXrkyG8dWGOmuvhSCuvikFIKACC0pbCmEQIFoW0JIsqSwpCBCIVAIlAtfkALlgoGRkAgcmwaL8LlnHn32O8ffODYxODy4jmMsWppXu8fi12zLSpLoyE/PPvahB3eNiksTM35AxvT2ZI12AiKvLBd4/dP9bk1kIaUkjG2Vn3/m0e89f/GFH74+smWzUnq9M5cF0CgKxfXOXNBxnDAIvv/C6Qcfuu/e8cL5E5NJhCSF4dU9gMWCeUXDYNU1YhcsIUkijyhl4vfsKf7Gb37o379x6gcvvL5ly2ZtNuqyLlTAXdDrlIAI5LiOVvF3nz+x7ZYdDz+wuzwx1am3LduhhVBm5uug4hq9p65qB7AQPUkpbQqQPH54994D9/3NPxx57djFLVs2aW1w/bPMpUYCwrqWXuRAx3EsiT9+8VQjwacee2jUtuvXZkykXEvaJAiQVlZ8vVX0BhGCALAAUyQyJDxtMmFy19aBJz9ysGplvvz3z1ar7eHhQaXMBj0LRDRa96bkLnt0tceGZ8xGJ/OVSqYv/ZH377+z2D/1i8unz1yabbUjQcqSCjEBNsx6oWzumRZRAEoGobVUKotibMvw7rt3JQN9X3v52M9PXBgo9Dtu6voksioA4jjOZ7NRFCVKCSF6oJGXDlOWn1kt9j67ZW7Q8auNxtaRocP33X1nsZjMVaevTk+VyrW239EqQdBL4cjALBhswKxtDxf6t20bGRjdXBHwozPnXj1xVpJV6O83zMy85m+dcLG7p02mL/P00x+7Ojn5g+eep1Wguec33H1x98iNlx3VdQ8Y2+1202/nspk7d9x8z/abR720GyW65Xf8TtQJVawYgARZju1l0nZf2qTsGptz5fJrFy9enipZJPvzeSGE1mZ5G4TX7M0iMrOQ8tChg9MzM8ffOC6lxLEd4z3a5h7o9XqbvAw6AkdR2Gz7iVae5w7250f6CwPZbNZNuVISUaKNH4c1359t1Gcq1XqzxQYynpf20oikjV7uCUu4EdcSSKC17m47dX+t07X0hj9M4dUdauYlpmNO4iiIoiiOVFftL1ucIHIsO+W6juMIErrbT1qj3f3Wve/eS5kB4P8Akc0lR4HpZV0AAAAASUVORK5CYII=" alt="Ivy's Beauty Secret" class="logo-img">
+    </a>
+    <div class="mp-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="active">Contact</a>
+    </div>
+    <a href="contact.html#booking" class="btn btn-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M21.29 18.6c.7-.7.7-1.8 0-2.5-.7-.7-1.8-.7-2.5 0l-.3.3-.3-.3c-.7-.7-1.8-.7-2.5 0-.7.7-.7 1.8 0 2.5l2.8 2.8 2.8-2.8Z"/></svg>Book an Appointment</a>
+  </div>
+<main>
+<section class="page-header no-img">
+    <div class="page-header-inner">
+      <span class="ph-eyebrow eyebrow"><span class="line"></span>Contact Us<span class="line"></span></span>
+      <h1>We&rsquo;d Love to <span class='text-gradient-rose'>Hear From You</span></h1>
+      <p class="ph-sub">Book an appointment, ask a question or simply say hello. Our team is always happy to assist.</p>
+      
+    </div>
+  </section>
+<section class="section-pad"><div class="wrap">
+  <div class="contact-cards">
+    <div class="contact-card reveal">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.4 1.05 4.58 2.78 6.2L4 22l5.13-1.35C10.05 20.87 11 21 12 21c5.52 0 10-4.04 10-9S17.52 2 12 2Z"/></svg></div>
+      <h3>WhatsApp</h3>
+      <p>Book fast via chat. We reply quickly.</p>
+      <a href="https://wa.me/971509921215?text=Hello%20Ivy's%20Beauty%20Secret%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="cta">Chat Now</a>
+    </div>
+    <div class="contact-card reveal" style="transition-delay:.15s">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></div>
+      <h3>Call Us</h3>
+      <p>+971 50 992 1215</p>
+      <a href="tel:+971509921215" class="cta">Call Now</a>
+    </div>
+    <div class="contact-card reveal" style="transition-delay:.3s">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+      <h3>Instagram</h3>
+      <p>@ivysbeautysecret</p>
+      <a href="https://www.instagram.com/ivysbeautysecret/?hl=en" target="_blank" rel="noopener noreferrer" class="cta">Follow Us</a>
+    </div>
+  </div>
+
+  <div class="contact-split">
+    <div class="visit-card reveal">
+      <h3>Visit <span class="text-gradient-rose">Our Salon</span></h3>
+      <ul class="visit-list">
+        <li><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="label">Address</div><div class="val">Al Tawakkal Typing Building, Mezzanine Floor, M03, Musaffah ME9, Abu Dhabi, United Arab Emirates</div></div></li>
+        <li><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="label">Opening Hours</div><div class="val">Saturday &ndash; Thursday: 10:00 AM &ndash; 10:00 PM<br>Friday: 2:00 PM &ndash; 10:00 PM</div></div></li>
+        <li><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></div><div><div class="label">Phone / WhatsApp</div><a href="tel:+971509921215" class="val">+971 50 992 1215</a></div></li>
+      </ul>
+      <div class="visit-footer-note">
+        <svg class="crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7Z"/><path d="M5 19h14"/></svg>
+        <p class="tag font-script">Be a Pampered Princess</p>
+        <p class="sub">Walk-ins welcome &middot; Appointments recommended</p>
+      </div>
+    </div>
+    <div class="map-wrap reveal" style="transition-delay:.2s">
+      <iframe
+        src="https://maps.google.com/maps?q=Al+Tawakkal+Typing+Building+Musaffah+ME9+Abu+Dhabi+United+Arab+Emirates&output=embed&z=17"
+        width="100%" height="100%"
+        style="border:0;min-height:420px;display:block;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ivy Beauty Secret location">
+      </iframe>
+    </div>
+  </div>
+</div></section>
+
+
+<section class="section-pad" id="booking" style="background:var(--gradient-soft)">
+  <div class="wrap">
+    <div class="section-heading center reveal">
+      <span class="eyebrow"><span class="line"></span>Book an Appointment<span class="line"></span></span>
+      <h2>Reserve Your <span class="text-gradient-rose">Luxury Experience</span></h2>
+      <p class="subtitle">Fill in the form below and we will confirm your appointment by email within a few hours.</p>
+    </div>
+    <div class="booking-form-wrap reveal">
+      <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Appointment Booking — Ivy's Beauty Secret">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fname">Full Name <span class="req">*</span></label>
+            <input type="text" id="fname" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="femail">Email Address <span class="req">*</span></label>
+            <input type="email" id="femail" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone / WhatsApp</label>
+            <input type="tel" id="fphone" name="phone" placeholder="+971 50 000 0000">
+          </div>
+          <div class="form-group">
+            <label for="fservice">Service Required <span class="req">*</span></label>
+            <select id="fservice" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <optgroup label="Hair Artistry">
+                <option>Haircut &amp; Trim</option>
+                <option>Hairstyling &amp; Blowouts</option>
+                <option>Hair Colouring / Highlights</option>
+                <option>Ombre &amp; Balayage</option>
+                <option>Keratin / Botox Treatment</option>
+                <option>Hair Extensions</option>
+                <option>Hair Spa</option>
+              </optgroup>
+              <optgroup label="Beauty &amp; Makeup">
+                <option>Bridal Makeup</option>
+                <option>Party Makeup</option>
+                <option>Makeover</option>
+              </optgroup>
+              <optgroup label="Facials &amp; Skin">
+                <option>Classic Facial</option>
+                <option>Hydra Facial</option>
+                <option>Acne Treatment</option>
+              </optgroup>
+              <optgroup label="Nails">
+                <option>Manicure &amp; Pedicure</option>
+                <option>Gel Polish</option>
+                <option>Gel / Polygel Extensions</option>
+              </optgroup>
+              <optgroup label="Other Services">
+                <option>Brows &amp; Threading</option>
+                <option>Waxing</option>
+                <option>Relaxing Massage</option>
+                <option>Multiple Services</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fdate">Preferred Date <span class="req">*</span></label>
+            <input type="date" id="fdate" name="preferred_date" required>
+          </div>
+          <div class="form-group">
+            <label for="ftime">Preferred Time <span class="req">*</span></label>
+            <select id="ftime" name="preferred_time" required>
+              <option value="" disabled selected>Select a time</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+              <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+              <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+              <option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="fnotes">Additional Notes</label>
+            <textarea id="fnotes" name="notes" rows="3" placeholder="Any special requests or details about your appointment..."></textarea>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:8px">
+          <button type="submit" class="btn btn-rose" id="submitBtn" style="min-width:220px;padding:16px 36px;font-size:15px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M21.29 18.6c.7-.7.7-1.8 0-2.5-.7-.7-1.8-.7-2.5 0l-.3.3-.3-.3c-.7-.7-1.8-.7-2.5 0-.7.7-.7 1.8 0 2.5l2.8 2.8 2.8-2.8Z"/></svg> <span id="btnText">Confirm Booking</span>
+          </button>
+        </div>
+      </form>
+      <div id="bookingSuccess" class="booking-success" aria-hidden="true">
+        <div class="booking-success-card">
+          <div class="bs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7Z"/><path d="M5 19h14"/></svg></div>
+          <h3>Booking Received!</h3>
+          <p class="bs-script font-script">Thank you, Pampered Princess</p>
+          <p>Your appointment request has been sent to our team. We will confirm your booking by email shortly.</p>
+          <p class="bs-note">Saturday &ndash; Thursday: 10 AM &ndash; 10 PM &nbsp;&middot;&nbsp; Friday: 2 PM &ndash; 10 PM</p>
+          <div class="bs-actions">
+            <a href="https://wa.me/971509921215?text=Hello%20Ivy's%20Beauty%20Secret%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="btn btn-rose"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.4 1.05 4.58 2.78 6.2L4 22l5.13-1.35C10.05 20.87 11 21 12 21c5.52 0 10-4.04 10-9S17.52 2 12 2Z"/></svg> Also message on WhatsApp</a>
+            <button onclick="document.getElementById('bookingSuccess').classList.remove('open')" class="btn btn-outline-gold">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo-link">
+      <img src="data:image/png;base64,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" alt="Ivy's Beauty Secret" class="logo-img footer-logo-img">
+    </a>
+          <p class="tagline" style="margin-top:16px">Be a Pampered Princess. A premium ladies salon &amp; spa in Abu Dhabi devoted to beauty, wellness and the art of feeling your most confident self.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit Us</h4>
+          <ul class="footer-contact">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Al Tawakkal Typing Building, Mezzanine Floor, M03, Musaffah ME9, Abu Dhabi, UAE</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><a href="tel:+971509921215">+971 50 992 1215</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Saturday &ndash; Thursday: 10:00 AM &ndash; 10:00 PM<br>Friday: 2:00 PM &ndash; 10:00 PM</div></li>
+          </ul>
+        </div>
+        <div class="footer-connect">
+          <h4>Connect</h4>
+          <p>Book your appointment or send us a message &mdash; we reply quickly.</p>
+          <div class="footer-socials">
+            <a href="https://wa.me/971509921215?text=Hello%20Ivy's%20Beauty%20Secret%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://www.instagram.com/ivysbeautysecret/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ivy's Beauty Secret Ladies Salon & Spa. All rights reserved.</p>
+        <p>Crafted with care in Abu Dhabi &middot; @ivysbeautysecret</p>
+      </div>
+    </div>
+  </footer>
+<div class="floating-actions">
+    <a href="https://www.instagram.com/ivysbeautysecret/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram" class="fab fab-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+    <a href="https://wa.me/971509921215?text=Hello%20Ivy's%20Beauty%20Secret%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="fab fab-wa"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.4 1.05 4.58 2.78 6.2L4 22l5.13-1.35C10.05 20.87 11 21 12 21c5.52 0 10-4.04 10-9S17.52 2 12 2Z"/></svg></a>
+  </div>
+<script>
+// ===== Navbar scroll state =====
+(function () {
+  var header = document.querySelector('.site-header');
+  function onScroll() {
+    if (window.scrollY > 24) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ===== Mobile menu =====
+(function () {
+  var openBtn = document.querySelector('.menu-btn');
+  var closeBtn = document.querySelector('.mobile-panel .close-btn');
+  var panel = document.querySelector('.mobile-panel');
+  var overlay = document.querySelector('.mobile-overlay');
+  function open() { panel.classList.add('open'); overlay.classList.add('open'); }
+  function close() { panel.classList.remove('open'); overlay.classList.remove('open'); }
+  if (openBtn) openBtn.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  if (overlay) overlay.addEventListener('click', close);
+  document.querySelectorAll('.mobile-panel .mp-links a, .mobile-panel .btn').forEach(function (a) {
+    a.addEventListener('click', close);
+  });
+})();
+
+// ===== Reveal on scroll =====
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { observer.observe(el); });
+})();
+
+// ===== Ambient falling petals + glitter =====
+(function () {
+  var field = document.querySelector('.sparkle-field');
+  if (!field) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  var petals = 14, glitters = 26;
+  var html = '';
+
+  for (var i = 0; i < petals; i++) {
+    var left = Math.round((i * 89 + 7) % 100);
+    var size = 10 + ((i * 7) % 14);
+    var delay = (i * 1.9) % 16;
+    var duration = 13 + ((i * 5) % 12);
+    var sway = (i % 2 === 0 ? 1 : -1) * (24 + ((i * 11) % 60));
+    var spin = 180 + ((i * 53) % 360);
+    var opacity = 0.55 + ((i * 13) % 30) / 100;
+    html += '<span class="petal" style="left:' + left + '%;width:' + size + 'px;height:' + size + 'px;' +
+      'animation-delay:' + delay + 's;animation-duration:' + duration + 's;' +
+      '--o:' + opacity + ';--sway:' + sway + 'px;--spin:' + spin + 'deg;"></span>';
+  }
+
+  for (var j = 0; j < glitters; j++) {
+    var gleft = Math.round((j * 67 + 23) % 100);
+    var gsize = 7 + ((j * 5) % 9);
+    var gdelay = (j * 1.1) % 9;
+    var gduration = 3.5 + ((j * 7) % 40) / 10;
+    var top = ((j * 53 + 11) % 100) + '%';
+    var gy = (((j * 17) % 30) - 15) + 'px';
+    var gx = (((j * 23) % 24) - 12) + 'px';
+    html += '<span class="glitter" style="left:' + gleft + '%;top:' + top + ';width:' + gsize + 'px;height:' + gsize + 'px;' +
+      'opacity:0;animation-delay:' + gdelay + 's;animation-duration:' + gduration + 's;' +
+      '--gy:' + gy + ';--gx:' + gx + ';"></span>';
+  }
+
+  field.innerHTML = html;
+})();
+
+
+(function () {
+  var form = document.getElementById('bookingForm');
+  if (!form) return;
+  var btn = document.getElementById('submitBtn');
+  var btnText = document.getElementById('btnText');
+  var success = document.getElementById('bookingSuccess');
+  var dateInput = document.getElementById('fdate');
+  if (dateInput) {
+    var today = new Date();
+    dateInput.min = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    btn.disabled = true; btnText.textContent = 'Sending...';
+    fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
+    .then(function(res) {
+      if (res.ok) { form.reset(); success.classList.add('open'); success.setAttribute('aria-hidden','false'); }
+      else { alert('Something went wrong. Please try WhatsApp or call us directly.'); }
+    })
+    .catch(function() { alert('Network error. Please try WhatsApp or call us directly.'); })
+    .finally(function() { btn.disabled=false; btnText.textContent='Confirm Booking'; });
+  });
+  success.addEventListener('click', function(e) { if (e.target===success) success.classList.remove('open'); });
+})();
+
+</script>
+</body>
+</html>
